@@ -1,0 +1,106 @@
+---
+title: "Comparative Price Analysis Across Retail Vendors: A Study of Current and Historical Pricing Trends"
+subtitle: ""
+author: 
+  - Wei Wang
+  - Chiyue Zhuang
+thanks: "Code and data are available at: [https://github.com/RohanAlexander/starter_folder](https://github.com/RohanAlexander/starter_folder)."
+date: today
+date-format: long
+abstract: "This study analyzes price variations across retail vendors by comparing current and historical pricing data. We assess discount patterns and pricing strategies, providing insights into vendor-specific price dynamics. The findings offer valuable implications for consumer decisions and competitive pricing in the retail market."
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+
+# Introduction
+
+In a highly competitive retail environment, pricing strategies are critical for attracting consumers and maintaining market share. This study focuses on understanding how various retail vendors adjust their pricing, particularly through discounts and price reductions, to capture consumer attention. By examining a dataset with current and historical prices across multiple vendors, we can gain insights into pricing patterns and trends that may reveal strategic differences among these vendors.
+
+Our primary objective is to evaluate how much current prices differ from old prices and to quantify discount levels across vendors. This analysis allows us to identify which vendors offer the most competitive pricing and to understand how pricing adjustments may vary depending on market conditions and competitive pressure. We aim to provide a clear estimation of these price variations to reveal meaningful differences in vendor pricing strategies.
+
+The analysis shows that significant price differences exist across vendors, with variations in discount levels and pricing flexibility. These results underscore that some vendors are more aggressive in their pricing strategies, offering substantial discounts that could impact consumer choice and loyalty.
+
+Understanding these vendor-specific pricing approaches is essential for both consumers and market analysts. For consumers, insights into which vendors offer better deals can guide purchasing decisions. For retailers, identifying competitors' pricing strategies can inform adjustments to their own pricing models, fostering a more dynamic and competitive market environment. This study thus sheds light on the nuances of retail pricing, offering valuable implications for both sides of the retail transaction.
+
+
+# Data {#sec-data}
+
+## Overview
+
+The data used in this analysis comprises pricing information collected from multiple retail vendors, capturing both current and historical prices for a selection of products. The dataset includes three primary variables: the name of the vendor, the current price, and the old price. This structure allows for a direct comparison of price changes across vendors, providing a foundation for analyzing discount patterns and pricing strategies within the retail market.
+
+## Measurement
+	
+To represent pricing trends accurately, data was gathered to reflect real-world shifts in vendor pricing strategies. Each entry in the dataset reflects a unique combination of a vendor and product price at two time points: the current price, representing the most recent listing, and the old price, which reflects a previous price point. The collection of both current and old prices allows us to examine price reductions and discounts that vendors apply over time.
+
+The pricing data represents broader economic phenomena such as market competition and consumer demand. In competitive retail markets, vendors often adjust their prices in response to shifts in competitor pricing, supply chain costs, and seasonal demand. These price adjustments are captured in the dataset as changes from the old price to the current price, allowing us to infer potential motivations behind pricing strategies. The dataset thus serves as a snapshot of retail competition, illustrating how vendors use pricing to influence consumer choices and market positioning.
+
+## Outcome variables
+
+The main outcome variables in this study are the current price and old price, which together enable us to calculate the difference between the two as a measure of discount or price change. By analyzing the current-to-old price ratio or difference, we derive insights into vendor-specific discounting behaviors and identify pricing flexibility trends. This outcome is essential for evaluating which vendors offer more aggressive discounts and for understanding how pricing strategies vary across the market.
+
+Some of our data is of penguins (@fig-bills), from @palmerpenguins.
+
+```{r}
+#| label: fig-bills
+#| fig-cap: Bills of penguins
+#| echo: false
+simulated_data <- read_csv("/Users/lucky/Desktop/e6/data/00-simulated_data/simulated_data.csv")
+
+# Create a box plot to compare current and old prices for each vendor
+ggplot(simulated_data, aes(x = vendor)) +
+  geom_boxplot(aes(y = current_price, color = "Current Price"), outlier.shape = NA) +
+  geom_boxplot(aes(y = old_price, color = "Old Price"), outlier.shape = NA) +
+  labs(
+    title = "Comparison of Current and Old Prices by Vendor",
+    x = "Vendor",
+    y = "Price"
+  ) +
+  scale_color_manual(values = c("Current Price" = "blue", "Old Price" = "orange")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+The boxplot presented above offers a comparative view of the current and old prices across several retail vendors. Each vendor is depicted along the x-axis, with corresponding price ranges on the y-axis. This visualization enables an assessment of price trends across vendors, specifically showing whether vendors have adjusted prices over time, potentially through discounts. The color-coded boxes distinguish between current prices (blue) and old prices (orange), allowing for a straightforward comparison of how pricing has evolved for each vendor.
+
+# Results
+
+The graph reveals distinct pricing patterns among vendors. Some vendors demonstrate a noticeable reduction in prices, with current prices positioned significantly lower than old prices, suggesting a focus on competitive discounting strategies. Conversely, other vendors show minimal difference between current and old prices, indicating a more stable pricing approach. Specifically, vendors like TandT and Metro exhibit a wide gap between the old and current prices, implying a pronounced use of discounts, while vendors such as SaveOnFoods display less variation, suggesting price stability. These results highlight diverse pricing strategies and provide insight into vendor-specific approaches to market competition.
+
+# Discussion
+
+## First discussion point {#sec-first-point}
+
+The graph underscores the variability in pricing strategies across vendors. Vendors that display a substantial decrease from old to current prices may be leveraging discounts as a means to attract budget-conscious consumers. This tactic can increase foot traffic and potentially drive higher sales volumes, especially in competitive market environments. 
+
+## Second discussion point
+
+For vendors with minimal price variation, maintaining stable prices could reflect a strategy focused on reliability and consumer trust. These vendors may appeal to customers who value price stability and are less likely to seek bargains. The consistency in pricing could also suggest a premium positioning or a deliberate approach to avoid frequent discounts.
+
+## Third discussion point
+
+The variance in pricing changes also highlights potential differences in vendor operational models. Vendors with larger price drops might have greater flexibility in pricing, possibly due to lower operational costs, different supplier agreements, or higher inventory turnover rates. On the other hand, vendors with stable prices might operate under constraints that limit price reductions, such as fixed cost structures or branding strategies centered around premium pricing.
+
+## Weaknesses and next steps
+
+While this analysis provides a foundational view of pricing patterns, there are limitations to consider. The dataset does not include product categories, seasonal factors, or regional differences that might impact pricing strategies. Additionally, this study does not account for underlying cost factors that could influence pricing decisions. Future analyses should include these variables to refine the findings. Examining additional variables such as product type or seasonal sales data could reveal deeper insights into the drivers of vendor-specific pricing strategies and provide a more comprehensive view of the retail pricing landscape.
+
+
+
+
+\newpage
+
+
+# References
+
+
