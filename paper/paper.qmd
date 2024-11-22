@@ -50,12 +50,13 @@ The pricing data represents broader economic phenomena such as market competitio
 
 The main outcome variables in this study are the current price and old price, which together enable us to calculate the difference between the two as a measure of discount or price change. By analyzing the current-to-old price ratio or difference, we derive insights into vendor-specific discounting behaviors and identify pricing flexibility trends. This outcome is essential for evaluating which vendors offer more aggressive discounts and for understanding how pricing strategies vary across the market.
 
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
 
 ```{r,echO=FALSE}
-#| label: fig-bills
-#| fig-cap: Bills of penguins
 #| echo: false
+#| warning: false
+#| message: false
+#| label: CO
+#| fig-cap: "Comparison of Current & Old Prices by Vendor"
 simulated_data <- read_csv("/Users/lucky/Desktop/Canadian-Grocery-Price-Data-Analysis/data/00-simulated_data/simulated_data.csv")
 
 # Create a box plot to compare current and old prices for each vendor
