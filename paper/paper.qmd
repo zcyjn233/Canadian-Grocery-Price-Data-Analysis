@@ -13,7 +13,7 @@ number-sections: true
 bibliography: references.bib
 ---
 
-```{r}
+```{r,echO=FALSE}
 #| include: false
 #| warning: false
 #| message: false
@@ -52,11 +52,11 @@ The main outcome variables in this study are the current price and old price, wh
 
 Some of our data is of penguins (@fig-bills), from @palmerpenguins.
 
-```{r}
+```{r,echO=FALSE}
 #| label: fig-bills
 #| fig-cap: Bills of penguins
 #| echo: false
-simulated_data <- read_csv("/Users/lucky/Desktop/e6/data/00-simulated_data/simulated_data.csv")
+simulated_data <- read_csv("/Users/lucky/Desktop/Canadian-Grocery-Price-Data-Analysis/data/00-simulated_data/simulated_data.csv")
 
 # Create a box plot to compare current and old prices for each vendor
 ggplot(simulated_data, aes(x = vendor)) +
@@ -95,6 +95,7 @@ The variance in pricing changes also highlights potential differences in vendor 
 
 While this analysis provides a foundational view of pricing patterns, there are limitations to consider. The dataset does not include product categories, seasonal factors, or regional differences that might impact pricing strategies. Additionally, this study does not account for underlying cost factors that could influence pricing decisions. Future analyses should include these variables to refine the findings. Examining additional variables such as product type or seasonal sales data could reveal deeper insights into the drivers of vendor-specific pricing strategies and provide a more comprehensive view of the retail pricing landscape.
 
+We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.date is from @citedata.
 
 
 
